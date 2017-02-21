@@ -2,6 +2,7 @@ package com.example;
 
 
 import com.example.member.Member;
+import com.example.member.MemberPK;
 import com.example.member.MemberRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +27,7 @@ public class DemoMemberApplicationTests {
     @Test
     public void testMemberSave(){
 
-        Member member = new Member("jwon",42);
+        Member member = new Member(new MemberPK("jwon", "박정원"),  42 );
 
         memberRepository.save(member);
     }
