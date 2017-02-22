@@ -1,5 +1,7 @@
 package com.example.phone;
 
+import com.example.member.Member;
+
 import javax.persistence.*;
 
 /**
@@ -12,14 +14,15 @@ public class Phone {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int seq;
 
-    @Column(name="member_id")
-    private int memberId;
-
     @Column(name="no")
     private String no;
 
+    @ManyToOne(targetEntity = MemberPhone.class ,optional = false)
+    private MemberPhone memberPhone;
+
     public Phone() {}
-    public Phone(String no){
+    public Phone(MemberPhone memberPhone, String no){
         this.no = no;
+        this.memberPhone = memberPhone;
     }
 }

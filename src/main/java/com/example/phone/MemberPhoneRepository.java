@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Created by goodjwon on 2017. 2. 21..
  */
-public interface MemberRepository extends JpaRepository<Member,Integer> {
+public interface MemberPhoneRepository extends JpaRepository<MemberPhone, Long> {
 }

@@ -8,7 +8,8 @@ import java.util.Collection;
  * Created by goodjwon on 2017. 2. 21..
  */
 @Entity
-public class Member {
+@Table(name = "member_phone")
+public class MemberPhone {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,20 +17,19 @@ public class Member {
     @Column(name = "name", length = 100)
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "member_id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "memberPhone")
     private Collection<Phone> phones;
 
-    public Member() {
+    public MemberPhone() {
     }
 
-    public Member(String name) {
+    public MemberPhone(String name) {
         this.name = name;
     }
 
     public void addPhone(Phone p){
-        if(p == null){
-            phones = new ArrayList();
+        if(phones == null){
+            phones = new ArrayList<Phone>();
         }
         phones.add(p);
     }
