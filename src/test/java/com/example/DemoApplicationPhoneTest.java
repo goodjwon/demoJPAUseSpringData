@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DemoApplicationPhoneTest {
 
     @Autowired MemberPhoneRepository memberPhoneRepository;
-    @Autowired PhoneRepository phoneRepository;
 
     @Test
     public void contextLoads() {
