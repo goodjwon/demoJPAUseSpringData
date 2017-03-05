@@ -23,7 +23,7 @@ public class MemberPhone2Keys {
     @EmbeddedId
     MemberPhoneKey memberPhoneKey;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "memberPhone")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "memberPhone2Keys")
     private Collection<Phone2Keys> phone2Keys;
 
     public MemberPhone2Keys() {

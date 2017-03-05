@@ -1,6 +1,7 @@
 package com.example.book;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,8 +23,15 @@ public class Book {
     public Book() {
     }
 
-    public Book(String name, Set<Publisher> publishers) {
+    public Book(String name) {
         this.name = name;
         this.publishers = publishers;
+    }
+
+    public void addPublishers(Publisher p){
+        if(publishers == null){
+            publishers = new HashSet<Publisher>();
+        }
+        publishers.add(p);
     }
 }

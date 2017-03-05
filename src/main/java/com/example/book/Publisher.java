@@ -1,9 +1,7 @@
 package com.example.book;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,13 +14,21 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+
+    @ManyToMany(mappedBy = "publishers")
     private Set<Book> books;
 
     public Publisher() {
     }
 
-    public Publisher(String name, Set<Book> books) {
+    public Publisher(String name) {
         this.name = name;
-        this.books = books;
+    }
+
+    public void addBook(Book book){
+        if(books==null){
+            books = new HashSet<Book>();
+        }
+        books.add(book);
     }
 }
