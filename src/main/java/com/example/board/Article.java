@@ -8,20 +8,24 @@ import javax.persistence.*;
  */
 @Entity
 public class Article{
-    @Id @Column(name="articleId")
+    @Id @Column(name="article_id")
     private Long articleId;
     @Column(name="title", length = 100)
     private String title;
 
-    @OneToOne
+    @OneToOne(mappedBy = "article")
     private ArticleContents articleContents;
 
     public Article() {
     }
 
-    public Article(Long articleId, String title, ArticleContents articleContents) {
+    public Article(Long articleId, String title) {
         this.articleId = articleId;
         this.title = title;
+
+    }
+
+    public void addContest(ArticleContents articleContents){
         this.articleContents = articleContents;
     }
 

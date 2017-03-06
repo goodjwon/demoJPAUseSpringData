@@ -1,6 +1,8 @@
 package com.example;
 
+import com.example.book.Book;
 import com.example.book.BookRepository;
+import com.example.book.Publisher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,4 +20,15 @@ public class DemoApplicationBooksTest {
 
     @Test
     public void ContextLoad(){};
+
+
+    @Test
+    public void testBookSave(){
+
+        Book book = new Book("spring workbook4");
+        book.addPublishers(new Publisher("by tobi"));
+
+        bookRepository.save(book);
+
+    }
 }

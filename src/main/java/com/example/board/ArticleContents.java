@@ -1,8 +1,6 @@
 package com.example.board;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 1:1 관계 작성
@@ -10,17 +8,22 @@ import javax.persistence.Id;
  */
 @Entity
 public class ArticleContents {
-    @Id
+    @Id @Column(name = "contents_id")
     private Long contentsId;
     private String content;
     private String contentType;
 
+    @OneToOne
+    @JoinColumn(name="article_id")
+    private Article article;
+
     public ArticleContents() {
     }
 
-    public ArticleContents(Long contentsId, String content, String contentType) {
+    public ArticleContents(Long contentsId, String content, String contentType, Article article) {
         this.contentsId = contentsId;
         this.content = content;
         this.contentType = contentType;
+        this.article = article;
     }
 }
