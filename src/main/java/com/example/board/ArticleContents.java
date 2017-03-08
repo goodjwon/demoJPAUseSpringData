@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 public class ArticleContents {
-    @Id @Column(name = "contents_id")
+    @Id @Column(name = "contents_id") @GeneratedValue(strategy = GenerationType. AUTO)
     private Long contentsId;
     private String content;
     private String contentType;
@@ -20,8 +20,14 @@ public class ArticleContents {
     public ArticleContents() {
     }
 
-    public ArticleContents(Long contentsId, String content, String contentType, Article article) {
-        this.contentsId = contentsId;
+//    public ArticleContents(Long contentsId, String content, String contentType, Article article) {
+//        this.contentsId = contentsId;
+//        this.content = content;
+//        this.contentType = contentType;
+//        this.article = article;
+//    }
+
+    public ArticleContents(String content, String contentType, Article article) {
         this.content = content;
         this.contentType = contentType;
         this.article = article;
